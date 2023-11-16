@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro Usuário</title>
-    <link rel="stylesheet" href="./style.css">
+    <title>Cadastro Livros</title>
+    <link rel="stylesheet" href="./style-book.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <style>
-       @import url('https://fonts.googleapis.com/css2?family=Fasthand&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fasthand&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 *{
     margin: 0;
@@ -30,8 +30,8 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 380px;
-    height: 520px;
+    width: 580px;
+    height: 650px;
     background-color: #1c1c1c;
     border-radius: 8px;
     overflow: hidden;
@@ -42,9 +42,9 @@ body{
     position: absolute;
     top: -50%;
     left: -50%;
-    width: 380px;
-    height: 520px;
-    background: linear-gradient(0deg, transparent, transparent, #45f3ff, #45f3ff, #45f3ff);
+    width: 580px;
+    height: 650px;
+    background: linear-gradient(0deg, transparent, transparent, #25e903, #25e903, #25e903);
     z-index: 1;
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
@@ -55,9 +55,9 @@ body{
     position: absolute;
     top: -50%;
     left: -50%;
-    width: 380px;
-    height: 520px;
-    background: linear-gradient(0deg, transparent, transparent, #45f3ff, #45f3ff, #45f3ff);
+    width: 580px;
+    height: 650px;
+    background: linear-gradient(0deg, transparent, transparent, #25e903, #25e903, #25e903);
     z-index: 1;
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
@@ -76,9 +76,9 @@ body{
     position: absolute;
     top: -50%;
     left: -50%;
-    width: 380px;
-    height: 520px;
-    background: linear-gradient(0deg, transparent, transparent, #ff2770, #ff2770, #ff2770);
+    width: 580px;
+    height: 650px;
+    background: linear-gradient(0deg, transparent, transparent, #ffffff, #ffffff, #ffffff);
     z-index: 1;
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
@@ -90,9 +90,9 @@ body{
     position: absolute;
     top: -50%;
     left: -50%;
-    width: 380px;
-    height: 520px;
-    background: linear-gradient(0deg, transparent, transparent, #ff2770, #ff2770, #ff2770);
+    width: 580px;
+    height: 650px;
+    background: linear-gradient(0deg, transparent, transparent, #ffffff, #ffffff, #ffffff);
     z-index: 1;
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
@@ -128,7 +128,7 @@ body{
 
 .box form .inputBox{
     position: relative;
-    width: 300px;
+    width: 500px;
     margin-top: 35px;
 }
 
@@ -140,11 +140,15 @@ body{
     outline: none;
     border:none;
     box-shadow: none;
-    color: #23242a;
+    color: #23242a00;
     font-size: 1em;
     letter-spacing: 0.05em;
     transition: 0.5s;
     z-index: 10;
+}
+
+.box form .inputBox input:hover{
+    color: #23242a;
 }
 
 .box form .inputBox span{
@@ -183,7 +187,6 @@ body{
     height: 44px;
 }
 
-
 .box form input[type="submit"]{
     border: none;
     outline: none;
@@ -194,51 +197,64 @@ body{
     border-radius: 4px;
     font-weight: 600;
     width: 130px;
-    margin-top: 50px;
+    margin-top: 10px;
 }
- 
+
+.box form input[type="submit"]:hover{
+    background: #25e903;
+}
+
     </style>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#"> <img src="Imagens/img logo.jpeg" alt="">FIAP BOOKS</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/cadastrarUsuario">Cadastrar Usuario</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/cadastrarProduto">Cadastrar livros</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <div class="container" style="display: flex; justify-content: center; align-items: center; min-height: 16vh;"></div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"> <img src="Imagens/img logo.jpeg" alt="">FIAP BOOKS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/cadastrarUsuario">Cadastrar Usuario</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/cadastrarProduto">Cadastrar livros</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container" style="display: flex; justify-content: center; align-items: center; min-height: 12vh;"></div>
     <div class="box">
-        <form action="/cadastrarUsuario" method="POST" style="width: 100%;">
-            <h2>Cadastro</h2>
+        <span class="borderLine"></span>
+        <form action="/cadastrarProduto" method="post">
+            <h2>Cadastro Livros</h2>
             <div class="inputBox">
-                <input type="text" name="nome" required="required">
-                <span>Nome</span>
+                <input type="text" name="codigo" required>
+                <span>Código</span>
                 <i></i>
             </div>
             <div class="inputBox">
-                <input type="email" name="email" required="required">
-                <span>E-mail</span>
+                <input type="text" name="descricao" required>
+                <span>Descrição</span>
                 <i></i>
             </div>
             <div class="inputBox">
-                <input type="password" name="senha" required="required">
-                <span>Senha</span>
+                <input type="text" name="fornecedor" required>
+                <span>Fornecedor</span>
                 <i></i>
             </div>
-            
-            <input type="submit" value="Cadastro">
+            <div class="inputBox">
+                <input type="date" name="data_impressao" required>
+                <span>Data Impressão</span>
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input type="number" name="quantidade_estoque" required>
+                <span>Quantidade Estoque</span>
+                <i></i>
+            </div>
+            <input type="submit" value="Cadastrar">
         </form>
     </div>
 </body>

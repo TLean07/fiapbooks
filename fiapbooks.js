@@ -3,23 +3,21 @@ const express = require("express");
 const bodyParser = require("body-parser");
 
 const app = express();
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 const port = 3000;
 
-mongoose.connect('mongodb://127.0.0.1:27017/fiapbooks',
-{   
+mongoose.connect('mongodb://127.0.0.1:27017/fiapbooks', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    
 });
 
 const usuarioSchema = new mongoose.Schema({
-    nome: {type : String},
-    email: {type: String, required: true,},
-    senha: {type : String},
-  });
-  
+    nome: { type: String },
+    email: { type: String, required: true },
+    senha: { type: String },
+});
+
 const Usuario = mongoose.model('Usuario', usuarioSchema);
 
 app.post("/cadastrarUsuario", async (req, res) => {
@@ -27,7 +25,7 @@ app.post("/cadastrarUsuario", async (req, res) => {
     const email = req.body.email;
     const senha = req.body.senha;
 
-    if (email == null || senha == null || nome == null) {
+    if (!email || !senha || !nome) {
         return res.status(400).json({ error: "Preencher todos os campos" });
     }
 
@@ -50,60 +48,60 @@ app.post("/cadastrarUsuario", async (req, res) => {
     }
 });
 
-app.get("/cadastrarUsuario", async(req, res)=>{
-    res.sendFile(__dirname +"/cadastro.html");
+app.get("/cadastrarUsuario", async (req, res) => {
+    res.sendFile(__dirname + "/cadastro.html");
 });
 
 const produtoSchema = new mongoose.Schema({
-    codigo: {type: String, required: true,},
-    descrição: {type : String},
-    fornecedor: {type : String},
-    data_impressão: {type : Date},
-    quantidade_estoque: {type : Number},
-  });
+    codigo: { type: String, required: true },
+    descricao: { type: String },
+    fornecedor: { type: String },
+    data_impressao: { type: Date },
+    quantidade_estoque: { type: Number },
+});
 
-  const Codigo = mongoose.model('Produto', produtoSchema);
-  
+const Produto = mongoose.model('Produto', produtoSchema);
+
 app.post("/cadastrarProduto", async (req, res) => {
-    const id_codigo = req.body.codigo;
-    const descrição = req.body.descrição;
+    const codigo = req.body.codigo;
+    const descricao = req.body.descricao;
     const fornecedor = req.body.fornecedor;
-    const data_impressão = req.body.data_impressão;
+    const data_impressao = req.body.data_impressao;
     const quantidade_estoque = req.body.quantidade_estoque;
 
-    if (id_codigo == null || descrição == null || fornecedor == null || data_impressão == null || quantidade_estoque == null) {
+    if (!codigo || !descricao || !fornecedor || !data_impressao || !quantidade_estoque) {
         return res.status(400).json({ error: "Preencher todos os campos" });
     }
 
-    const id_codigoExiste = await Codigo.findOne({ id_codigo: id_codigo }); 
-    if (id_codigoExiste) {
+    const codigoExiste = await Produto.findOne({ codigo: codigo });
+    if (codigoExiste) {
         return res.status(400).json({ error: "O produto já existe!!!" });
     }
 
-    const codigo = new Codigo({
-        id_codigo: id_codigo,
-        descrição: descrição,
+    const produto = new Produto({
+        codigo: codigo,
+        descricao: descricao,
         fornecedor: fornecedor,
-        data_impressão: data_impressão,
+        data_impressao: data_impressao,
         quantidade_estoque: quantidade_estoque,
     });
 
     try {
-        const newCodigo = await codigo.save();
-        res.json({ error: null, msg: "Cadastro ok", codigo: newCodigo });
+        const newProduto = await produto.save();
+        res.json({ error: null, msg: "Cadastro ok", produto: newProduto });
     } catch (error) {
         res.status(400).json({ error });
     }
 });
 
-app.get("/cadastrarProduto", async(req, res)=>{
-    res.sendFile(__dirname +"/produto.html");
+app.get("/cadastrarProduto", async (req, res) => {
+    res.sendFile(__dirname + "/cad-livros.html");
 });
 
-app.get("/", async(req, res)=>{
-    res.sendFile(__dirname +"/index.html");
+app.get("/", async (req, res) => {
+    res.sendFile(__dirname + "/index.html");
 });
 
-app.listen(port, ()=>{
+app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);
-})  
+});
