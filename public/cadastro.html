@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro Livros</title>
-    <link rel="stylesheet" href="./style-book.css">
+    <title>Cadastro Usuário</title>
+    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Fasthand&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+       @import url('https://fonts.googleapis.com/css2?family=Fasthand&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 *{
     margin: 0;
@@ -22,7 +22,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-   background: #011425 url(../images/background/background.png) center no-repeat;
+    background-color: #23242a;
 }
 
 .box {
@@ -30,8 +30,8 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 580px;
-    height: 650px;
+    width: 380px;
+    height: 520px;
     background-color: #1c1c1c;
     border-radius: 8px;
     overflow: hidden;
@@ -42,8 +42,8 @@ body{
     position: absolute;
     top: -50%;
     left: -50%;
-    width: 580px;
-    height: 650px;
+    width: 380px;
+    height: 520px;
     background: linear-gradient(0deg, transparent, transparent, #45f3ff, #45f3ff, #45f3ff);
     z-index: 1;
     transform-origin: bottom right;
@@ -55,8 +55,8 @@ body{
     position: absolute;
     top: -50%;
     left: -50%;
-    width: 580px;
-    height: 650px;
+    width: 380px;
+    height: 520px;
     background: linear-gradient(0deg, transparent, transparent, #45f3ff, #45f3ff, #45f3ff);
     z-index: 1;
     transform-origin: bottom right;
@@ -76,9 +76,9 @@ body{
     position: absolute;
     top: -50%;
     left: -50%;
-    width: 580px;
-    height: 650px;
-    background: linear-gradient(0deg, transparent, transparent, #ffffff, #ffffff, #ffffff);
+    width: 380px;
+    height: 520px;
+    background: linear-gradient(0deg, transparent, transparent, #ff2770, #ff2770, #ff2770);
     z-index: 1;
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
@@ -90,9 +90,9 @@ body{
     position: absolute;
     top: -50%;
     left: -50%;
-    width: 580px;
-    height: 650px;
-    background: linear-gradient(0deg, transparent, transparent, #ffffff, #ffffff, #ffffff);
+    width: 380px;
+    height: 520px;
+    background: linear-gradient(0deg, transparent, transparent, #ff2770, #ff2770, #ff2770);
     z-index: 1;
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
@@ -120,7 +120,7 @@ body{
 }
 
 .box form h2{
-    color: aquamarine;
+    color: #fff;
     font-weight: 500;
     text-align: center;
     letter-spacing: 0.1em;
@@ -128,7 +128,7 @@ body{
 
 .box form .inputBox{
     position: relative;
-    width: 500px;
+    width: 300px;
     margin-top: 35px;
 }
 
@@ -140,15 +140,11 @@ body{
     outline: none;
     border:none;
     box-shadow: none;
-    color: #23242a00;
+    color: #23242a;
     font-size: 1em;
     letter-spacing: 0.05em;
     transition: 0.5s;
     z-index: 10;
-}
-
-.box form .inputBox input:hover{
-    color: #23242a;
 }
 
 .box form .inputBox span{
@@ -175,11 +171,11 @@ body{
     bottom: 0;
     width: 100%;
     height: 2px;
-    background-color: #ED1659;
+    background-color: #fff;
     border-radius: 4px;
     overflow: hidden;
     transition: 0.5s;
-    
+    pointer-events: none;
 }
 
 .box form .inputBox input:valid ~ i,
@@ -187,74 +183,62 @@ body{
     height: 44px;
 }
 
+
 .box form input[type="submit"]{
     border: none;
     outline: none;
     padding: 9px 25px;
-    background: aquamarine;
+    background: #fff;
     cursor: pointer;
     font-size: 0.9em;
     border-radius: 4px;
     font-weight: 600;
     width: 130px;
-    margin-top: 10px;
+    margin-top: 50px;
 }
-
-.box form input[type="submit"]:hover{
-    background: #25e903;
-}
-
+ 
     </style>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"> <img src="Imagens/img logo.jpeg" alt="">FIAP BOOKS</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/cadastrarUsuario">Cadastrar Usuario</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/cadastrarProduto">Cadastrar livros</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <div class="container" style="display: flex; justify-content: center; align-items: center; min-height: 12vh;"></div>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#"> <img src="Imagens/img logo.jpeg" alt="">FIAP BOOKS</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cadastrarUsuario">Cadastrar Usuario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cadastrarProduto">Cadastrar livros</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container" style="display: flex; justify-content: center; align-items: center; min-height: 16vh;"></div>
     <div class="box">
-        <span class="borderLine"></span>
-        <form action="/cadastrarProduto" method="post">
-            <h2>Cadastro Livros</h2>
+        <form action="/cadastrarUsuario" method="POST" style="width: 100%;">
+            <h2>Cadastro</h2>
             <div class="inputBox">
-                <input type="text" name="codigo" required>
-                <span>Código</span>
+                <input type="text" name="nome" required="required">
+                <span>Nome</span>
                 <i></i>
             </div>
             <div class="inputBox">
-                <input type="text" name="descricao" required>
-                <span>Descrição</span>
+                <input type="email" name="email" required="required">
+                <span>E-mail</span>
                 <i></i>
             </div>
             <div class="inputBox">
-                <input type="text" name="fornecedor" required>
-                <span>Fornecedor</span>
+                <input type="password" name="senha" required="required">
+                <span>Senha</span>
                 <i></i>
             </div>
-            <div class="inputBox">
-                <input type="date" name="data_impressao" required>
-                <span>Data Impressão</span>
-                <i></i>
-            </div>
-            <div class="inputBox">
-                <input type="number" name="quantidade_estoque" required>
-                <span>Quantidade Estoque</span>
-                <i></i>
-            </div>
-            <input type="submit" value="Cadastrar">
+            
+            <input type="submit" value="Cadastro">
         </form>
     </div>
 </body>
